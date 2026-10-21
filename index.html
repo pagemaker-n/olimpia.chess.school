@@ -213,13 +213,16 @@
         </div>
     </nav>
 
-    <!-- Hero Section -->
+    <!-- Hero Section with Video Background (Lightened) -->
     <section id="home" class="relative min-h-screen flex items-center pt-20 overflow-hidden">
-        <!-- Background Image with Overlay -->
-        <div class="absolute inset-0 z-0">
-             <img src="https://cdn.shopify.com/s/files/1/0603/3021/3434/files/5384495496094753315.jpg?v=1792533144" alt="Chess Background" class="w-full h-full object-cover opacity-30">
-             <div class="absolute inset-0 bg-gradient-to-r from-slate-900 via-slate-900/95 to-slate-900/60"></div>
-             <div class="absolute inset-0 bg-[url('https://www.transparenttextures.com/patterns/cubes.png')] opacity-10"></div>
+        <!-- Video Background -->
+        <div class="absolute inset-0 z-0 overflow-hidden">
+            <video autoplay muted loop playsinline class="w-full h-full object-cover opacity-60 brightness-125 contrast-110">
+                <source src="https://cdn.shopify.com/videos/c/o/v/b938a3c985c3447e96257ef9a20cd0e6.mp4" type="video/mp4">
+                Your browser does not support the video tag.
+            </video>
+            <!-- Lighter Gradient Overlay -->
+            <div class="absolute inset-0 bg-gradient-to-r from-slate-900/90 via-slate-900/70 to-slate-900/40"></div>
         </div>
 
         <div class="max-w-7xl mx-auto px-6 lg:px-12 grid lg:grid-cols-2 gap-12 items-center relative z-10">
@@ -231,7 +234,7 @@
                     ՕԼԻՄՊԻԱ <br>
                     <span class="text-gradient">ՇԱԽՄԱՏԻ ԴՊՐՈՑ</span>
                 </h1>
-                <p class="text-lg text-slate-300 max-w-lg leading-relaxed border-l-4 border-amber-500 pl-4">
+                <p class="text-lg text-slate-200 max-w-lg leading-relaxed border-l-4 border-amber-500 pl-4 font-medium">
                     Երեխայի համար շախմատը միայն խաղ չէ․ այն հնարավորություն է սովորելու կենտրոնանալ, կշռադատել քայլերը և վստահ որոշումներ կայացնել։
                 </p>
                 <div class="flex flex-wrap gap-4 pt-2">
@@ -244,7 +247,7 @@
                 </div>
             </div>
 
-            <!-- Hero Visual -->
+            <!-- Hero Visual (Hidden on mobile for cleaner look with video) -->
             <div class="relative lg:h-[550px] flex items-center justify-center animate-float hidden lg:flex perspective-1000">
                  <div class="relative w-full h-full rounded-2xl overflow-hidden shadow-2xl shadow-black/50 border border-white/10 group">
                      <img src="https://cdn.shopify.com/s/files/1/0603/3021/3434/files/5384495496094753321.jpg?v=1792533144" alt="Chess Strategy" class="w-full h-full object-cover transition-transform duration-700 group-hover:scale-105">
@@ -472,7 +475,7 @@
         </div>
     </section>
 
-    <!-- Reviews Section (NEW) -->
+    <!-- Reviews Section -->
     <section id="reviews" class="py-24 bg-[#0f1520] relative">
         <div class="absolute inset-0 bg-[url('https://www.transparenttextures.com/patterns/dark-matter.png')] opacity-20"></div>
         <div class="max-w-7xl mx-auto px-6 lg:px-12 relative z-10">
@@ -489,7 +492,7 @@
                         <i class="fa-solid fa-star"></i><i class="fa-solid fa-star"></i><i class="fa-solid fa-star"></i><i class="fa-solid fa-star"></i><i class="fa-solid fa-star"></i>
                     </div>
                     <p class="text-slate-300 text-sm mb-6 italic leading-relaxed">
-                        "Շատ գոհ եմ դասընթացներից։ Երեխաս սիրով է գնում դպրոց և սպասում չի կարողանում, որ երբ է հաջորդ դասը։ Մարզիչները շատ համբերատար են։"
+                        "Շատ գոհ եմ դասընթացներից։ Երեխաս սիրով է գնում դպրոց և <span class="text-amber-400 font-semibold">չի կարողանում սպասել</span>, թե երբ է հաջորդ դասը։ Մարզիչները շատ համբերատար են։"
                     </p>
                     <div class="flex items-center gap-4">
                         <div class="w-10 h-10 rounded-full bg-slate-700 flex items-center justify-center text-white font-bold">Ա</div>
@@ -507,7 +510,7 @@
                         <i class="fa-solid fa-star"></i><i class="fa-solid fa-star"></i><i class="fa-solid fa-star"></i><i class="fa-solid fa-star"></i><i class="fa-solid fa-star"></i>
                     </div>
                     <p class="text-slate-300 text-sm mb-6 italic leading-relaxed">
-                        "Կարճ ժամանակում երեխաս մտածելակերպը փոխվել է։ Ավելի կենտրոնացած է դարձել և պատասխանատու։ Շնորհակալ եմ Օլիմպիա դպրոցին։"
+                        "<span class="text-amber-400 font-semibold">Կարճ ժամանակում երեխայիս մտածելակերպը փոխվել է</span>։ Ավելի կենտրոնացած է դարձել և պատասխանատու։ Շնորհակալ եմ Օլիմպիա դպրոցին։"
                     </p>
                     <div class="flex items-center gap-4">
                         <div class="w-10 h-10 rounded-full bg-slate-700 flex items-center justify-center text-white font-bold">Գ</div>
@@ -539,47 +542,81 @@
         </div>
     </section>
 
-    <!-- Quiz Section -->
+    <!-- Professional Quiz Section -->
     <section id="quiz" class="py-24 bg-slate-900 relative overflow-hidden">
         <div class="absolute inset-0 bg-gradient-to-b from-amber-900/10 to-transparent"></div>
         <div class="max-w-3xl mx-auto px-6 relative z-10">
             <div class="text-center mb-10">
-                <h2 class="text-3xl font-display font-bold mb-2 text-white">Ստուգեք Ձեր <span class="text-amber-400">Գիտելիքները</span></h2>
-                <p class="text-slate-400">Փոքրիկ թեստ շախմատի սիրահարների համար</p>
+                <h2 class="text-3xl font-display font-bold mb-2 text-white">Ստուգիր շախմատի <span class="text-amber-400">գիտելիքներդ</span></h2>
+                <p class="text-slate-400">Անցիր 5 հարցից բաղկացած կարճ քուիզը և պարզիր՝ որքան լավ գիտես շախմատի հիմունքները։</p>
             </div>
 
             <div class="glass-card p-8 rounded-2xl border border-amber-500/20 shadow-2xl" id="quiz-container">
+                
+                <!-- Intro Screen -->
+                <div id="q-intro" class="text-center py-8">
+                    <div class="w-20 h-20 bg-amber-500/10 rounded-full flex items-center justify-center mx-auto mb-6 text-amber-500 text-4xl">
+                        <i class="fa-solid fa-question"></i>
+                    </div>
+                    <p class="text-slate-300 mb-8">Ընտրիր յուրաքանչյուր հարցի մեկ պատասխան։</p>
+                    <button onclick="startQuiz()" class="px-8 py-3 bg-amber-500 hover:bg-amber-400 text-slate-900 font-bold rounded-lg shadow-lg transition-all transform hover:scale-105">
+                        Սկսել Քուիզը
+                    </button>
+                </div>
+
                 <!-- Question 1 -->
-                <div id="q1" class="quiz-step">
-                    <h3 class="text-xl font-bold mb-6 text-white">1. Ո՞ր ֆիգուրն է քայլում միայն անկյունագծով:</h3>
+                <div id="q1" class="quiz-step hidden">
+                    <h3 class="text-xl font-bold mb-6 text-white">1. Ո՞ր խաղաքարն է քայլում «Г» տառի նման։</h3>
                     <div class="space-y-3">
-                        <div class="quiz-option p-4 rounded-lg border border-white/10 bg-slate-800/50 text-slate-300" onclick="selectOption(this, false)">Ա. Թագուհի</div>
-                        <div class="quiz-option p-4 rounded-lg border border-white/10 bg-slate-800/50 text-slate-300" onclick="selectOption(this, true)">Բ. Փիղ</div>
-                        <div class="quiz-option p-4 rounded-lg border border-white/10 bg-slate-800/50 text-slate-300" onclick="selectOption(this, false)">Գ. Ձի</div>
+                        <div class="quiz-option p-4 rounded-lg border border-white/10 bg-slate-800/50 text-slate-300" onclick="selectOption(this, false)">Ա) Նավակ</div>
+                        <div class="quiz-option p-4 rounded-lg border border-white/10 bg-slate-800/50 text-slate-300" onclick="selectOption(this, true)">Բ) Ձի</div>
+                        <div class="quiz-option p-4 rounded-lg border border-white/10 bg-slate-800/50 text-slate-300" onclick="selectOption(this, false)">Գ) Փիղ</div>
                     </div>
                     <button class="mt-6 px-6 py-2 bg-amber-500 text-slate-900 font-bold rounded-lg opacity-50 cursor-not-allowed" disabled id="btn-q1" onclick="nextQuestion('q1', 'q2')">Հաջորդը</button>
                 </div>
 
                 <!-- Question 2 -->
                 <div id="q2" class="quiz-step hidden">
-                    <h3 class="text-xl font-bold mb-6 text-white">2. Քանի՞ վանդակ ունի շախմատի տախտակը:</h3>
+                    <h3 class="text-xl font-bold mb-6 text-white">2. Ո՞ր խաղաքարն է քայլում միայն անկյունագծով։</h3>
                     <div class="space-y-3">
-                        <div class="quiz-option p-4 rounded-lg border border-white/10 bg-slate-800/50 text-slate-300" onclick="selectOption(this, false)">Ա. 50</div>
-                        <div class="quiz-option p-4 rounded-lg border border-white/10 bg-slate-800/50 text-slate-300" onclick="selectOption(this, false)">Բ. 56</div>
-                        <div class="quiz-option p-4 rounded-lg border border-white/10 bg-slate-800/50 text-slate-300" onclick="selectOption(this, true)">Գ. 64</div>
+                        <div class="quiz-option p-4 rounded-lg border border-white/10 bg-slate-800/50 text-slate-300" onclick="selectOption(this, true)">Ա) Փիղ</div>
+                        <div class="quiz-option p-4 rounded-lg border border-white/10 bg-slate-800/50 text-slate-300" onclick="selectOption(this, false)">Բ) Նավակ</div>
+                        <div class="quiz-option p-4 rounded-lg border border-white/10 bg-slate-800/50 text-slate-300" onclick="selectOption(this, false)">Գ) Թագավոր</div>
                     </div>
                     <button class="mt-6 px-6 py-2 bg-amber-500 text-slate-900 font-bold rounded-lg opacity-50 cursor-not-allowed" disabled id="btn-q2" onclick="nextQuestion('q2', 'q3')">Հաջորդը</button>
                 </div>
 
                 <!-- Question 3 -->
                 <div id="q3" class="quiz-step hidden">
-                    <h3 class="text-xl font-bold mb-6 text-white">3. Ո՞ր ֆիգուրն է կարող ցատկել այլ ֆիգուրների վրայով:</h3>
+                    <h3 class="text-xl font-bold mb-6 text-white">3. Ո՞րն է շախմատի խաղի հիմնական նպատակը։</h3>
                     <div class="space-y-3">
-                        <div class="quiz-option p-4 rounded-lg border border-white/10 bg-slate-800/50 text-slate-300" onclick="selectOption(this, true)">Ա. Ձի</div>
-                        <div class="quiz-option p-4 rounded-lg border border-white/10 bg-slate-800/50 text-slate-300" onclick="selectOption(this, false)">Բ. Նավակ</div>
-                        <div class="quiz-option p-4 rounded-lg border border-white/10 bg-slate-800/50 text-slate-300" onclick="selectOption(this, false)">Գ. Թագավոր</div>
+                        <div class="quiz-option p-4 rounded-lg border border-white/10 bg-slate-800/50 text-slate-300" onclick="selectOption(this, false)">Ա) Վերցնել հակառակորդի բոլոր խաղաքարերը</div>
+                        <div class="quiz-option p-4 rounded-lg border border-white/10 bg-slate-800/50 text-slate-300" onclick="selectOption(this, true)">Բ) Շախ-մատ անել հակառակորդի թագավորին</div>
+                        <div class="quiz-option p-4 rounded-lg border border-white/10 bg-slate-800/50 text-slate-300" onclick="selectOption(this, false)">Գ) Թագուհուն հասցնել խաղատախտակի եզրին</div>
                     </div>
-                    <button class="mt-6 px-6 py-2 bg-amber-500 text-slate-900 font-bold rounded-lg opacity-50 cursor-not-allowed" disabled id="btn-q3" onclick="showResult()">Ավարտել</button>
+                    <button class="mt-6 px-6 py-2 bg-amber-500 text-slate-900 font-bold rounded-lg opacity-50 cursor-not-allowed" disabled id="btn-q3" onclick="nextQuestion('q3', 'q4')">Հաջորդը</button>
+                </div>
+
+                <!-- Question 4 -->
+                <div id="q4" class="quiz-step hidden">
+                    <h3 class="text-xl font-bold mb-6 text-white">4. Կարո՞ղ է թագավորը քայլել հակառակորդի հարձակման տակ գտնվող վանդակ։</h3>
+                    <div class="space-y-3">
+                        <div class="quiz-option p-4 rounded-lg border border-white/10 bg-slate-800/50 text-slate-300" onclick="selectOption(this, false)">Ա) Այո</div>
+                        <div class="quiz-option p-4 rounded-lg border border-white/10 bg-slate-800/50 text-slate-300" onclick="selectOption(this, true)">Բ) Ոչ</div>
+                    </div>
+                    <button class="mt-6 px-6 py-2 bg-amber-500 text-slate-900 font-bold rounded-lg opacity-50 cursor-not-allowed" disabled id="btn-q4" onclick="nextQuestion('q4', 'q5')">Հաջորդը</button>
+                </div>
+
+                <!-- Question 5 -->
+                <div id="q5" class="quiz-step hidden">
+                    <h3 class="text-xl font-bold mb-6 text-white">5. Ի՞նչ կարող է դառնալ զինվորը, երբ հասնում է խաղատախտակի մյուս եզրին։</h3>
+                    <div class="space-y-3">
+                        <div class="quiz-option p-4 rounded-lg border border-white/10 bg-slate-800/50 text-slate-300" onclick="selectOption(this, false)">Ա) Թագուհի</div>
+                        <div class="quiz-option p-4 rounded-lg border border-white/10 bg-slate-800/50 text-slate-300" onclick="selectOption(this, false)">Բ) Ձի</div>
+                        <div class="quiz-option p-4 rounded-lg border border-white/10 bg-slate-800/50 text-slate-300" onclick="selectOption(this, false)">Գ) Նավակ</div>
+                        <div class="quiz-option p-4 rounded-lg border border-white/10 bg-slate-800/50 text-slate-300" onclick="selectOption(this, true)">Դ) Վերոնշյալներից ցանկացածը</div>
+                    </div>
+                    <button class="mt-6 px-6 py-2 bg-amber-500 text-slate-900 font-bold rounded-lg opacity-50 cursor-not-allowed" disabled id="btn-q5" onclick="calculateResult()">Ստուգել պատասխանները</button>
                 </div>
 
                 <!-- Result -->
@@ -587,9 +624,10 @@
                     <div class="w-24 h-24 bg-gradient-to-br from-amber-400 to-amber-600 rounded-full flex items-center justify-center mx-auto mb-6 text-slate-900 text-4xl shadow-[0_0_30px_rgba(245,158,11,0.4)] animate-bounce">
                         <i class="fa-solid fa-trophy"></i>
                     </div>
-                    <h3 class="text-3xl font-bold mb-4 text-white">Շնորհավորում ենք!</h3>
-                    <p class="text-slate-300 mb-8 max-w-md mx-auto">Դուք ճիշտ պատասխանեցիք բոլոր հարցերին։ Ժամանակն է գրանցվել մեր դասընթացներին և զարգացնել Ձեր տաղանդը։</p>
-                    <a href="#contact" class="inline-block px-10 py-4 bg-white text-slate-900 font-bold rounded-full hover:bg-amber-400 transition-colors shadow-lg">Գրանցվել Հիմա</a>
+                    <h3 class="text-3xl font-bold mb-2 text-white" id="result-title"></h3>
+                    <p class="text-amber-400 font-bold text-xl mb-4" id="result-score"></p>
+                    <p class="text-slate-300 mb-8 max-w-md mx-auto" id="result-message"></p>
+                    <button onclick="resetQuiz()" class="inline-block px-10 py-3 border border-amber-500 text-amber-500 font-bold rounded-full hover:bg-amber-500 hover:text-slate-900 transition-colors">Նորից անցնել քուիզը</button>
                 </div>
             </div>
         </div>
@@ -660,21 +698,24 @@
                     <p class="text-slate-300">Թող երեխան ծանոթանա շախմատին, իսկ դուք՝ մեր ուսուցման ձևաչափին։</p>
                 </div>
 
-                <form class="space-y-6" onsubmit="event.preventDefault(); alert('Շնորհակալություն: Ձեր հայտը ընդունված է: Մենք կկապվենք Ձեզ հետ:')">
+                <!-- Formspree Integration for Email -->
+                <form action="https://formspree.io/f/olympia.chessschool@mail.ru" method="POST" class="space-y-6">
+                    <!-- Note: Replace the 'f/' ID above with your actual Formspree endpoint ID after registering your email on formspree.io -->
+                    
                     <div class="grid md:grid-cols-2 gap-6">
                         <div class="space-y-2">
                             <label class="text-sm text-slate-400 ml-1 font-medium">Անուն</label>
-                            <input type="text" required class="w-full bg-slate-900/50 border border-white/10 rounded-lg px-4 py-3.5 text-white focus:outline-none focus:border-amber-500 focus:ring-1 focus:ring-amber-500 transition-all placeholder-slate-600" placeholder="Ծնողի անունը">
+                            <input type="text" name="name" required class="w-full bg-slate-900/50 border border-white/10 rounded-lg px-4 py-3.5 text-white focus:outline-none focus:border-amber-500 focus:ring-1 focus:ring-amber-500 transition-all placeholder-slate-600" placeholder="Ծնողի անունը">
                         </div>
                         <div class="space-y-2">
                             <label class="text-sm text-slate-400 ml-1 font-medium">Հեռախոս</label>
-                            <input type="tel" required class="w-full bg-slate-900/50 border border-white/10 rounded-lg px-4 py-3.5 text-white focus:outline-none focus:border-amber-500 focus:ring-1 focus:ring-amber-500 transition-all placeholder-slate-600" placeholder="+374 ...">
+                            <input type="tel" name="phone" required class="w-full bg-slate-900/50 border border-white/10 rounded-lg px-4 py-3.5 text-white focus:outline-none focus:border-amber-500 focus:ring-1 focus:ring-amber-500 transition-all placeholder-slate-600" placeholder="+374 ...">
                         </div>
                     </div>
                     
                     <div class="space-y-2">
                         <label class="text-sm text-slate-400 ml-1 font-medium">Երեխայի Տարիքը</label>
-                        <input type="number" class="w-full bg-slate-900/50 border border-white/10 rounded-lg px-4 py-3.5 text-white focus:outline-none focus:border-amber-500 focus:ring-1 focus:ring-amber-500 transition-all placeholder-slate-600" placeholder="Օրինակ՝ 7">
+                        <input type="number" name="age" class="w-full bg-slate-900/50 border border-white/10 rounded-lg px-4 py-3.5 text-white focus:outline-none focus:border-amber-500 focus:ring-1 focus:ring-amber-500 transition-all placeholder-slate-600" placeholder="Օրինակ՝ 7">
                     </div>
 
                     <button type="submit" class="w-full bg-gradient-to-r from-amber-500 to-amber-600 hover:from-amber-400 hover:to-amber-500 text-slate-900 font-bold py-4 rounded-lg shadow-lg shadow-amber-500/20 transform transition hover:-translate-y-1 hover:shadow-amber-500/40 text-lg">
@@ -706,6 +747,7 @@
                             <div class="w-8 h-8 rounded-full bg-slate-800 flex items-center justify-center group-hover:bg-amber-500 transition-colors">
                                 <i class="fa-solid fa-phone text-amber-500 group-hover:text-slate-900 text-xs"></i>
                             </div>
+                            <!-- Clickable Phone Link -->
                             <a href="tel:+37433563377" class="hover:text-amber-400 transition-colors">+374 33 563377</a>
                         </li>
                         <li class="flex items-center gap-3 group">
@@ -732,7 +774,8 @@
                         <div>
                             <p class="font-bold text-white mb-1">Քաղաք Հրազդան</p>
                             <p class="mb-3">Միկրոշրջան 6-րդ փողոց</p>
-                            <a href="https://maps.google.com/?q=Hrazdan+Microdistrict+6" target="_blank" class="inline-flex items-center gap-2 text-amber-500 hover:text-amber-400 text-xs font-bold uppercase tracking-wider transition-colors">
+                            <!-- Apple Maps Link -->
+                            <a href="https://maps.apple.com/place?map=explore&place-id=I6F562A755243050&address=6%D6%80%D5%A4+%D6%83%D5%B8%D5%B2%D5%B8%D6%81+%D5%B6%D6%80%D5%A2%2C+Armenia&coordinate=40.547796%2C44.766824&name=%D5%95%D5%AC%D5%AB%D5%B4%D5%BA%D5%AB%D5%A1+%D5%B4%D5%A1%D6%80%D5%A6%D5%AF%D5%A5%D5%B6%D5%BF%D6%80%D5%B8%D5%B6&_provider=9902" target="_blank" class="inline-flex items-center gap-2 text-amber-500 hover:text-amber-400 text-xs font-bold uppercase tracking-wider transition-colors">
                                 Տեսնել քարտեզի վրա <i class="fa-solid fa-arrow-right"></i>
                             </a>
                         </div>
@@ -757,7 +800,6 @@
                 }, 300);
             } else {
                 menu.classList.remove('hidden');
-                // Small delay to allow display:block to apply before opacity transition
                 setTimeout(() => {
                     menu.classList.add('open');
                 }, 10);
@@ -784,7 +826,6 @@
                 document.querySelector(this.getAttribute('href')).scrollIntoView({
                     behavior: 'smooth'
                 });
-                // Close mobile menu if open
                 const menu = document.getElementById('mobile-menu');
                 if (menu.classList.contains('open')) {
                     toggleMenu();
@@ -809,36 +850,84 @@
         }
 
         // Quiz Logic
+        let currentScore = 0;
+        let totalQuestions = 5;
+
+        function startQuiz() {
+            document.getElementById('q-intro').classList.add('hidden');
+            document.getElementById('q1').classList.remove('hidden');
+            document.getElementById('q1').classList.add('animate-fade-in-up');
+        }
+
         function selectOption(element, isCorrect) {
-            // Remove selected class from siblings
             const parent = element.parentElement;
             const options = parent.querySelectorAll('.quiz-option');
             options.forEach(opt => opt.classList.remove('selected'));
             
-            // Add selected class to clicked
             element.classList.add('selected');
             
-            // Enable next button
             const btn = parent.nextElementSibling;
             if(btn && btn.tagName === 'BUTTON') {
                 btn.disabled = false;
                 btn.classList.remove('opacity-50', 'cursor-not-allowed');
-                btn.dataset.correct = isCorrect;
+                btn.dataset.isCorrect = isCorrect; 
             }
         }
 
         function nextQuestion(currentId, nextId) {
+            const prevBtn = document.getElementById('btn-' + currentId);
+            if(prevBtn && prevBtn.dataset.isCorrect === 'true') {
+                currentScore++;
+            }
+
             document.getElementById(currentId).classList.add('hidden');
             document.getElementById(nextId).classList.remove('hidden');
             document.getElementById(nextId).classList.add('animate-fade-in-up');
         }
 
-        function showResult() {
-            document.getElementById('q3').classList.add('hidden');
+        function calculateResult() {
+            const lastBtn = document.getElementById('btn-q5');
+            if(lastBtn && lastBtn.dataset.isCorrect === 'true') {
+                currentScore++;
+            }
+
+            document.getElementById('q5').classList.add('hidden');
             document.getElementById('quiz-result').classList.remove('hidden');
             document.getElementById('quiz-result').classList.add('animate-fade-in-up');
+
+            const title = document.getElementById('result-title');
+            const scoreDisplay = document.getElementById('result-score');
+            const message = document.getElementById('result-message');
+
+            scoreDisplay.innerText = `${currentScore}/${totalQuestions}`;
+
+            if (currentScore === 5) {
+                title.innerText = "Գերազանց";
+                message.innerText = "Շատ լավ գիտես շախմատի հիմունքները։";
+            } else if (currentScore === 4) {
+                title.innerText = "Շատ լավ";
+                message.innerText = "Գրեթե բոլոր հարցերին ճիշտ պատասխանեցիր։";
+            } else if (currentScore === 3) {
+                title.innerText = "Լավ սկիզբ";
+                message.innerText = "Մի փոքր էլ փորձիր, և ավելի լավ արդյունք կունենաս։";
+            } else {
+                title.innerText = "Շարունակի՛ր սովորել";
+                message.innerText = "Կրկին անցիր քուիզը և բարելավիր արդյունքդ։";
+            }
+        }
+
+        function resetQuiz() {
+            currentScore = 0;
+            document.getElementById('quiz-result').classList.add('hidden');
+            document.getElementById('q-intro').classList.remove('hidden');
+            
+            document.querySelectorAll('.quiz-option').forEach(opt => opt.classList.remove('selected'));
+            document.querySelectorAll('button[id^="btn-"]').forEach(btn => {
+                btn.disabled = true;
+                btn.classList.add('opacity-50', 'cursor-not-allowed');
+                delete btn.dataset.isCorrect;
+            });
         }
     </script>
 </body>
 </html>
-

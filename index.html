@@ -80,7 +80,7 @@
     .hero-note { display: flex; align-items: center; gap: 10px; margin-top: 28px; color: #c4c9c8; font-size: .83rem; }
     .hero-note i { color: var(--gold); }
     .hero-visual { position: relative; min-height: 480px; display: grid; place-items: center; }
-    .hero-photo { position: relative; width: min(100%, 450px); height: 500px; overflow: hidden; border-radius: 210px 210px 26px 26px; border: 1px solid rgba(255,255,255,.22); box-shadow: 0 28px 90px rgba(0,0,0,.45); transform: rotate(2deg); animation: float 8s ease-in-out infinite; }
+    .hero-photo { position: relative; width: min(100%, 450px); aspect-ratio: 1 / 1; height: auto; overflow: hidden; border-radius: 22px; border: 1px solid rgba(255,255,255,.22); box-shadow: 0 28px 90px rgba(0,0,0,.45); animation: float 8s ease-in-out infinite; }
     .hero-photo::after { content: ""; position: absolute; inset: 35% 0 0; background: linear-gradient(transparent, rgba(4,10,14,.85)); }
     .hero-photo img { height: 100%; object-fit: cover; }
     .photo-caption { position: absolute; z-index: 1; bottom: 24px; left: 25px; right: 25px; display: flex; align-items: center; gap: 13px; }
@@ -192,10 +192,10 @@
     html.js .reveal.visible { opacity: 1; transform: none; }
     .delay-1 { transition-delay: .08s; } .delay-2 { transition-delay: .16s; } .delay-3 { transition-delay: .24s; }
     @keyframes rise { from { opacity: 0; transform: translateY(10px); } to { opacity: 1; transform: none; } }
-    @keyframes float { 0%,100% { transform: translateY(0) rotate(2deg); } 50% { transform: translateY(-11px) rotate(1deg); } }
+    @keyframes float { 0%,100% { transform: translateY(0); } 50% { transform: translateY(-11px); } }
     @media (max-width: 980px) {
       .nav-links { gap: 13px; } .nav-links a:not(.btn) { font-size: .75rem; }
-      .hero-layout { gap: 25px; } .hero-visual { min-height: 400px; } .hero-photo { height: 430px; }
+      .hero-layout { gap: 25px; } .hero-visual { min-height: 400px; }
       .benefit-grid { grid-template-columns: repeat(2, 1fr); }
       .coach-card { grid-template-columns: 115px 1fr; gap: 18px; padding: 20px; }
       .coach-photo { width: 115px; height: 155px; }
@@ -213,7 +213,7 @@
       .hero h1 { font-size: clamp(3rem, 13vw, 5rem); }
       .hero-copy { position: relative; z-index: 2; }
       .hero-visual { min-height: 380px; margin-top: 5px; }
-      .hero-photo { width: min(82%, 390px); height: 390px; }
+      .hero-photo { width: min(82%, 390px); }
       .orbit.one { width: 420px; height: 420px; } .orbit.two { width: 480px; height: 480px; }
       .hero-scroll { display: none; }
       .course-grid, .coach-grid { grid-template-columns: 1fr; }
@@ -234,7 +234,7 @@
       .hero-actions { display: grid; }
       .hero-actions .btn { width: 100%; }
       .hero-visual { min-height: 330px; }
-      .hero-photo { height: 340px; border-radius: 170px 170px 22px 22px; }
+      .hero-photo { width: min(82%, 340px); border-radius: 20px; }
       .benefit-grid { gap: 12px; }
       .benefit-card { min-height: 220px; padding: 19px 16px; }
       .benefit-card h3 { font-size: .98rem; }
@@ -331,13 +331,23 @@
         <button class="gallery-item reveal delay-2" type="button" data-full="https://cdn.shopify.com/s/files/1/0603/3021/3434/files/5384495496094753320.jpg?v=1792533143" aria-label="Մեծ դիտել լուսանկարը"><img loading="lazy" src="https://cdn.shopify.com/s/files/1/0603/3021/3434/files/5384495496094753320.jpg?v=1792533143" alt="ՕԼԻՄՊԻԱ դպրոցի սաները"></button>
       </div>
     </div></section>
-    <dialog class="lightbox" id="lightbox"><button type="button" id="lightbox-close" aria-label="Փակել"><i class="fa-solid fa-xmark"></i></button><img id="lightbox-image" alt=""></dialog>
+
+    <dialog class="lightbox" id="lightbox">
+      <button type="button" id="lightbox-close" aria-label="Փակել"><i class="fa-solid fa-xmark"></i></button>
+      <img id="lightbox-image" alt="">
+    </dialog>
 
     <section class="section" id="coaches"><div class="container">
       <div class="section-heading reveal"><span class="eyebrow">Մեր մարզիչները</span><h2>Փորձառություն՝ <span>նվիրված ուսուցմանը</span></h2><p>Դասընթացներն անցկացվում են շախմատի մասնագետների կողմից։</p></div>
       <div class="coach-grid">
-        <article class="coach-card reveal"><div class="coach-photo"><img loading="lazy" src="https://cdn.shopify.com/s/files/1/0603/3021/3434/files/5384495496094753317.jpg?v=1792533143" alt="Գևորգ Ալավերդյան"></div><div><h3>Գևորգ Ալավերդյան</h3><div class="coach-role">Միջազգային վարպետ</div><p>Պրոֆեսիոնալ մարզիչ, ով օգնում է սաներին հասնել բարձունքների։ Նրա մոտեցումը համատեղում է կարգապահությունն ու ստեղծագործ ազատությունը։</p></div></article>
-        <article class="coach-card reveal delay-1"><div class="coach-photo"><img loading="lazy" src="https://cdn.shopify.com/s/files/1/0603/3021/3434/files/5384495496094753318.jpg?v=1792533144" alt="Արմեն Ալավերդյան"></div><div><h3>Արմեն Ալավերդյան</h3><div class="coach-role">Պրոֆեսիոնալ մարզիչ</div><p>Փորձառու մասնագետ, ով սովորեցնում է ռազմավարական մտածողություն և հատուկ ուշադրություն է դարձնում երեխաների հոգեբանական պատրաստվածությանը։</p></div></article>
+        <article class="coach-card reveal">
+          <div class="coach-photo"><img loading="lazy" src="https://cdn.shopify.com/s/files/1/0603/3021/3434/files/5384495496094753317.jpg?v=1792533143" alt="Գևորգ Ալավերդյան"></div>
+          <div><h3>Գևորգ Ալավերդյան</h3><div class="coach-role">Միջազգային վարպետ</div><p>Պրոֆեսիոնալ մարզիչ, ով օգնում է սաներին հասնել բարձունքների։ Նրա մոտեցումը համատեղում է կարգապահությունն ու ստեղծագործ ազատությունը։</p></div>
+        </article>
+        <article class="coach-card reveal delay-1">
+          <div class="coach-photo"><img loading="lazy" src="https://cdn.shopify.com/s/files/1/0603/3021/3434/files/5384495496094753318.jpg?v=1792533144" alt="Արմեն Ալավերդյան"></div>
+          <div><h3>Արմեն Ալավերդյան</h3><div class="coach-role">Պրոֆեսիոնալ մարզիչ</div><p>Փորձառու մասնագետ, ով սովորեցնում է ռազմավարական մտածողություն և հատուկ ուշադրություն է դարձնում երեխաների հոգեբանական պատրաստվածությանը։</p></div>
+        </article>
       </div>
     </div></section>
 
@@ -386,7 +396,7 @@
 
   <footer class="site-footer"><div class="container footer-row">
     <a class="footer-brand" href="#home"><span class="brand-mark"><img src="https://cdn.shopify.com/s/files/1/0603/3021/3434/files/5384495496094753325.jpg?v=1792533143" alt=""></span><strong>ՕԼԻՄՊԻԱ</strong></a>
-    <div class="footer-meta"><span>© 2026 ՕԼԻՄՊԻԱ ՇԱԽՄԱՏԻ ԴՊՐՈՑ</span><a href="tel:+37433563377">+374 33 563377</a><a href="https://www.facebook.com/people/%D5%95%D5%AC%D5%AB%D5%B4%D5%BA%D5%AB%D5%A1-%D5%ՇԱԽՄԱՏ%D5%AB-%D4%B4%D5%BA%D6%80%D5%B8%D6%81/100095445048468/" target="_blank" rel="noopener noreferrer">Facebook</a></div>
+    <div class="footer-meta"><span>© 2026 ՕԼԻՄՊԻԱ ՇԱԽՄԱՏԻ ԴՊՐՈՑ</span><a href="tel:+37433563377">+374 33 563377</a><a href="https://www.facebook.com/people/%D5%95%D5%AC%D5%AB%D5%B4%D5%BA%D5%AB%D5%A1-%D5%ՇԱԽՄԱՏ%D5%Ի-%D4%B4%D5%ՊՐՈՑ/100095445048468/" target="_blank" rel="noopener noreferrer">Facebook</a></div>
   </div></footer>
 
   <script>
@@ -395,20 +405,28 @@
       const toggle = document.getElementById("menu-toggle");
       const nav = document.getElementById("nav-links");
       const menuIcon = toggle.querySelector("i");
+
       function closeMenu() {
         nav.classList.remove("open");
         toggle.setAttribute("aria-expanded", "false");
         toggle.setAttribute("aria-label", "Բացել ցանկը");
         menuIcon.className = "fa-solid fa-bars";
       }
+
       toggle.addEventListener("click", function () {
         const open = nav.classList.toggle("open");
         toggle.setAttribute("aria-expanded", String(open));
         toggle.setAttribute("aria-label", open ? "Փակել ցանկը" : "Բացել ցանկը");
         menuIcon.className = open ? "fa-solid fa-xmark" : "fa-solid fa-bars";
       });
-      nav.querySelectorAll("a").forEach(function (link) { link.addEventListener("click", closeMenu); });
-      function updateHeader() { header.classList.toggle("scrolled", window.scrollY > 24); }
+
+      nav.querySelectorAll("a").forEach(function (link) {
+        link.addEventListener("click", closeMenu);
+      });
+
+      function updateHeader() {
+        header.classList.toggle("scrolled", window.scrollY > 24);
+      }
       updateHeader();
       window.addEventListener("scroll", updateHeader, { passive: true });
 
@@ -429,6 +447,7 @@
 
       const lightbox = document.getElementById("lightbox");
       const lightboxImage = document.getElementById("lightbox-image");
+
       document.querySelectorAll(".gallery-item").forEach(function (button) {
         button.addEventListener("click", function () {
           lightboxImage.src = button.dataset.full;
@@ -436,30 +455,54 @@
           lightbox.showModal();
         });
       });
-      document.getElementById("lightbox-close").addEventListener("click", function () { lightbox.close(); });
-      lightbox.addEventListener("click", function (event) { if (event.target === lightbox) lightbox.close(); });
+
+      document.getElementById("lightbox-close").addEventListener("click", function () {
+        lightbox.close();
+      });
+
+      lightbox.addEventListener("click", function (event) {
+        if (event.target === lightbox) lightbox.close();
+      });
 
       const quiz = document.getElementById("quiz-form");
       const result = document.getElementById("quiz-result");
+
       quiz.addEventListener("submit", function (event) {
         event.preventDefault();
+
         const data = new FormData(quiz);
         const answers = ["b", "a", "b", "b", "d"];
         let score = 0;
+
         for (let i = 0; i < answers.length; i += 1) {
           if (!data.get("q" + (i + 1))) {
             const question = quiz.querySelector('[name="q' + (i + 1) + '"]');
             question.focus();
-            question.closest(".quiz-question").scrollIntoView({ behavior: "smooth", block: "center" });
+            question.closest(".quiz-question").scrollIntoView({
+              behavior: "smooth",
+              block: "center"
+            });
             return;
           }
           if (data.get("q" + (i + 1)) === answers[i]) score += 1;
         }
-        document.getElementById("result-title").textContent = score + "/5 — " + (score === 5 ? "Գերազանց" : score === 4 ? "Շատ լավ" : score === 3 ? "Լավ սկիզբ" : "Շարունակի՛ր սովորել");
-        document.getElementById("result-message").textContent = score === 5 ? "Շատ լավ գիտես շախմատի հիմունքները։" : score === 4 ? "Գրեթե բոլոր հարցերին ճիշտ պատասխանեցիր։" : score === 3 ? "Լավ սկիզբ է․ մի փոքր էլ փորձիր։" : "Կրկին անցիր քուիզը և բարելավիր արդյունքդ։";
+
+        document.getElementById("result-title").textContent =
+          score + "/5 — " +
+          (score === 5 ? "Գերազանց" :
+           score === 4 ? "Շատ լավ" :
+           score === 3 ? "Լավ սկիզբ" : "Շարունակի՛ր սովորել");
+
+        document.getElementById("result-message").textContent =
+          score === 5 ? "Շատ լավ գիտես շախմատի հիմունքները։" :
+          score === 4 ? "Գրեթե բոլոր հարցերին ճիշտ պատասխանեցիր։" :
+          score === 3 ? "Լավ սկիզբ է․ մի փոքր էլ փորձիր։" :
+          "Կրկին անցիր քուիզը և բարելավիր արդյունքդ։";
+
         result.classList.add("show");
         result.scrollIntoView({ behavior: "smooth", block: "nearest" });
       });
+
       quiz.addEventListener("reset", function () {
         result.classList.remove("show");
         window.setTimeout(function () {

@@ -81,6 +81,7 @@
     .hero-note i { color: var(--gold); }
     .hero-visual { position: relative; min-height: 480px; display: grid; place-items: center; }
     .hero-photo { position: relative; display: block; width: min(100%, 450px); aspect-ratio: 1 / 1; height: auto; overflow: hidden; border-radius: 0; clip-path: inset(0); border: 1px solid rgba(255,255,255,.3); background: #10171c; box-shadow: 0 28px 90px rgba(0,0,0,.45); animation: float 8s ease-in-out infinite; }
+    .hero-photo:focus-visible { outline: 3px solid var(--gold); outline-offset: 5px; }
     .hero-photo::after { content: ""; position: absolute; inset: 35% 0 0; background: linear-gradient(transparent, rgba(4,10,14,.85)); }
     .hero-photo img { display: block; width: 100%; height: 100%; object-fit: cover; object-position: center; }
     .photo-caption { position: absolute; z-index: 1; bottom: 24px; left: 25px; right: 25px; display: flex; align-items: center; gap: 13px; }
@@ -187,6 +188,12 @@
     .lightbox::backdrop { background: rgba(2,6,10,.86); backdrop-filter: blur(8px); }
     .lightbox img { max-height: 84vh; object-fit: contain; }
     .lightbox button { position: absolute; top: 12px; right: 12px; width: 42px; height: 42px; border: 0; border-radius: 50%; color: white; background: rgba(0,0,0,.65); cursor: pointer; font-size: 1.2rem; }
+    .media-dialog { position: relative; width: min(92vw, 1024px); max-width: calc(100% - 32px); max-height: 90vh; padding: 14px; border: 1px solid rgba(255,255,255,.2); border-radius: 18px; background: #080d13; color: var(--text); box-shadow: 0 30px 100px rgba(0,0,0,.7); }
+    .media-dialog::backdrop { background: rgba(2,6,10,.88); backdrop-filter: blur(8px); }
+    .media-dialog video { display: block; width: 100%; max-height: 82vh; border-radius: 10px; background: #000; }
+    .media-dialog-close { position: absolute; z-index: 2; top: 22px; right: 22px; width: 42px; height: 42px; border: 0; border-radius: 50%; color: white; background: rgba(0,0,0,.72); cursor: pointer; font-size: 1.2rem; }
+    .video-error { margin: 14px 4px 2px; color: #f2d99f; font-size: .9rem; }
+    .video-error[hidden] { display: none; }
     .reveal { opacity: 1; transform: none; }
     html.js .reveal { opacity: 0; transform: translateY(24px); transition: opacity .7s ease, transform .7s cubic-bezier(.2,.7,.2,1); }
     html.js .reveal.visible { opacity: 1; transform: none; }
@@ -280,11 +287,11 @@
           <div class="hero-badge"><i class="fa-solid fa-chess-knight"></i> Մտածելու և աճելու ճանապարհ</div>
           <h1>Խելացի քայլերը<br><span>սկսվում են այստեղ</span></h1>
           <p>Երեխայի համար շախմատը միայն խաղ չէ․ այն հնարավորություն է սովորելու կենտրոնանալ, կշռադատել քայլերը և վստահ որոշումներ կայացնել։</p>
-          <div class="hero-actions"><a class="btn btn-primary" href="#contact">Գրանցվել փորձնական դասի <i class="fa-solid fa-arrow-right"></i></a><a class="btn btn-ghost" href="#about">Ծանոթանալ դպրոցին</a></div>
+          <div class="hero-actions"><a class="btn btn-primary" href="#contact">Գրանցվել փորձնական դասի <i class="fa-solid fa-arrow-right"></i></a><a class="btn btn-ghost" href="#about">Ծանոթանալ դպրոցին</a><button class="btn btn-ghost" id="video-open" type="button"><i class="fa-solid fa-play"></i> Դիտել տեսանյութը</button></div>
           <div class="hero-note"><i class="fa-solid fa-location-dot"></i> Հրազդան · Մ/շ 6-րդ փողոց</div>
         </div>
         <div class="hero-visual reveal delay-2"><div class="orbit one"></div><div class="orbit two"></div>
-          <div class="hero-photo"><img src="https://cdn.shopify.com/s/files/1/0603/3021/3434/files/5384495496094753321.jpg?v=1792533144" alt="Շախմատի դաս ՕԼԻՄՊԻԱ դպրոցում"><div class="photo-caption"><span class="caption-icon"><i class="fa-solid fa-chess"></i></span><span><small>Քայլ առ քայլ դեպի նոր հմտություններ</small><strong>ՕԼԻՄՊԻԱ շախմատի դպրոց</strong></span></div></div>
+          <div class="hero-photo" role="button" tabindex="0" data-full="https://cdn.shopify.com/s/files/1/0603/3021/3434/files/5384495496094753321.jpg?v=1792533144" aria-label="Մեծ դիտել շախմատի դասի լուսանկարը"><img src="https://cdn.shopify.com/s/files/1/0603/3021/3434/files/5384495496094753321.jpg?v=1792533144" alt="Շախմատի դաս ՕԼԻՄՊԻԱ դպրոցում"><div class="photo-caption"><span class="caption-icon"><i class="fa-solid fa-chess"></i></span><span><small>Քայլ առ քայլ դեպի նոր հմտություններ</small><strong>ՕԼԻՄՊԻԱ շախմատի դպրոց</strong></span></div></div>
         </div>
       </div>
       <a href="#about" class="hero-scroll">ԲԱՑԱՀԱՅՏԵԼ</a>
@@ -331,7 +338,15 @@
         <button class="gallery-item reveal delay-2" type="button" data-full="https://cdn.shopify.com/s/files/1/0603/3021/3434/files/5384495496094753320.jpg?v=1792533143" aria-label="Մեծ դիտել լուսանկարը"><img loading="lazy" src="https://cdn.shopify.com/s/files/1/0603/3021/3434/files/5384495496094753320.jpg?v=1792533143" alt="ՕԼԻՄՊԻԱ դպրոցի սաները"></button>
       </div>
     </div></section>
-    <dialog class="lightbox" id="lightbox"><button type="button" id="lightbox-close" aria-label="Փակել"><i class="fa-solid fa-xmark"></i></button><img id="lightbox-image" alt=""></dialog>
+    <dialog class="lightbox" id="lightbox" aria-label="Լուսանկարի մեծ դիտում"><button type="button" id="lightbox-close" aria-label="Փակել"><i class="fa-solid fa-xmark"></i></button><img id="lightbox-image" alt=""></dialog>
+    <dialog class="media-dialog" id="video-dialog" aria-label="ՕԼԻՄՊԻԱ շախմատի դպրոցի տեսանյութը">
+      <button class="media-dialog-close" type="button" id="video-close" aria-label="Փակել տեսանյութը"><i class="fa-solid fa-xmark"></i></button>
+      <video id="video-player" controls playsinline preload="metadata" poster="https://cdn.shopify.com/s/files/1/0603/3021/3434/files/5384495496094753321.jpg?v=1792533144">
+        <source src="https://cdn.shopify.com/videos/c/o/v/b938a3c985c3447e96257ef9a20cd0e6.mp4" type="video/mp4">
+        Ձեր դիտարկիչը չի աջակցում HTML վիդեո նվագարկմանը։
+      </video>
+      <p class="video-error" id="video-error" hidden>Տեսանյութը չբեռնվեց։ <a href="https://cdn.shopify.com/videos/c/o/v/b938a3c985c3447e96257ef9a20cd0e6.mp4" target="_blank" rel="noopener noreferrer">Փորձեք բացել այն առանձին պատուհանում։</a></p>
+    </dialog>
 
     <section class="section" id="coaches"><div class="container">
       <div class="section-heading reveal"><span class="eyebrow">Մեր մարզիչները</span><h2>Փորձառություն՝ <span>նվիրված ուսուցմանը</span></h2><p>Դասընթացներն անցկացվում են շախմատի մասնագետների կողմից։</p></div>
@@ -378,15 +393,15 @@
         <div><span class="eyebrow">Կապ մեզ հետ</span><h2>Սկսե՞նք <span>առաջին քայլից</span></h2><p>Գրանցվելու համար կարող եք զանգահարել նշված հեռախոսահամարով կամ գրել մեր Facebook էջին։</p></div>
         <div><div class="contact-actions">
           <a class="contact-link" href="tel:+37433563377"><i class="fa-solid fa-phone"></i><span><small>Զանգահարեք</small><strong>+374 33 563377</strong></span></a>
-          <a class="contact-link" href="https://www.facebook.com/people/%D5%95%D5%AC%D5%AB%D5%B4%D5%BA%D5%AB%D5%A1-%D5%87%D5%A1%D5%AD%D5%B4%D5%A1%D5%BF%D5%AB-%D4%B4%D5%BA%D6%80%D5%B8%D6%81/100095445048468/" target="_blank" rel="noopener noreferrer"><i class="fa-brands fa-facebook-f"></i><span><small>Գրեք մեր էջին</small><strong>Facebook</strong></span></a>
-        </div><div class="address-card"><small>Մեզ կարող եք գտնել</small>Հրազդան, Միկրոշրջան 6-րդ փողոց<br><a href="https://maps.apple.com/place?map=explore&place-id=I6F562A755243050&address=6%D6%80%D5%A4+%D6%83%D5%B8%D5%B2%D5%B8%D6%81+%D5%B6%D6%80%D5%A2%2C+Armenia&coordinate=40.547796%2C44.766824&name=%D5%95%D5%AC%D5%AB%D5%B4%D5%BA%D5%AB%D5%A1+%D5%B4%D5%A1%D6%80%D5%A6%D5%AF%D5%A5%D5%B6%D5%BF%D6%80%D5%B8%D5%B6&_provider=9902" target="_blank" rel="noopener noreferrer">Տեսնել քարտեզի վրա <i class="fa-solid fa-arrow-up-right-from-square"></i></a></div></div>
+          <a class="contact-link" href="https://www.facebook.com/people/%D5%95%D5%AC%D5%AB%D5%B4%D5%BA%D5%AB%D5%A1-%D5%Շ%D5%A1%D5%խ%D5%B4%D5%A1%D5%տ%D5%ի-%D5%Դ%D5%պ%D6%80%D5%B8%D6%81/100095445048468/" target="_blank" rel="noopener noreferrer"><i class="fa-brands fa-facebook-f"></i><span><small>Գրեք մեր էջին</small><strong>Facebook</strong></span></a>
+        </div><div class="address-card"><small>Մեզ կարող եք գտնել</small>Հրազդան, Միկրոշրջան 6-րդ փողոց<br><a href="https://maps.apple.com/place?map=explore&place-id=I6F562A755243050&address=6%D6%80%D5%A4+%D6%83%D5%B8%D5%B2%D5%B8%D6%81+%D5%B6%D6%80%D5%A2%2C+Armenia&coordinate=40.547796%2C44.766824&name=%D5%95%D5%Լ%D5%ի%D5%մ%D5%պ%D5%իա+%D5%մ%D5%ա%D6%80%D5%զ%D5%կ%D5%ե%D5%ն%D5%տ%D6%80%D5%ո%D5%ն&_provider=9902" target="_blank" rel="noopener noreferrer">Տեսնել քարտեզի վրա <i class="fa-solid fa-arrow-up-right-from-square"></i></a></div></div>
       </div>
     </div></section>
   </main>
 
   <footer class="site-footer"><div class="container footer-row">
     <a class="footer-brand" href="#home"><span class="brand-mark"><img src="https://cdn.shopify.com/s/files/1/0603/3021/3434/files/5384495496094753325.jpg?v=1792533143" alt=""></span><strong>ՕԼԻՄՊԻԱ</strong></a>
-    <div class="footer-meta"><span>© 2026 ՕԼԻՄՊԻԱ ՇԱԽՄԱՏԻ ԴՊՐՈՑ</span><a href="tel:+37433563377">+374 33 563377</a><a href="https://www.facebook.com/people/%D5%95%D5%AC%D5%AB%D5%B4%D5%BA%D5%AB%D5%A1-%D5%Շ%D5%A1%D5%խ%D5%B4%D5%A1%D5%BF%D5%B4%D5%B4%D5%B8%D6%81/100095445048468/" target="_blank" rel="noopener noreferrer">Facebook</a></div>
+    <div class="footer-meta"><span>© 2026 ՕԼԻՄՊԻԱ ՇԱԽՄԱՏԻ ԴՊՐՈՑ</span><a href="tel:+37433563377">+374 33 563377</a><a href="https://www.facebook.com/people/%D5%95%D5%Լ%D5%ի%D5%մ%D5%պ%D5%իա-%D5%Շ%D5%A1%D5%խ%D5%B4%D5%A1%D5%տ%D5%ի-%D5%Դ%D5%պ%D6%80%D5%B8%D6%ց/100095445048468/" target="_blank" rel="noopener noreferrer">Facebook</a></div>
   </div></footer>
 
   <script>
@@ -429,15 +444,40 @@
 
       const lightbox = document.getElementById("lightbox");
       const lightboxImage = document.getElementById("lightbox-image");
-      document.querySelectorAll(".gallery-item").forEach(function (button) {
-        button.addEventListener("click", function () {
-          lightboxImage.src = button.dataset.full;
-          lightboxImage.alt = button.querySelector("img").alt;
-          lightbox.showModal();
-        });
+      function openImage(button) {
+        const image = button.querySelector("img");
+        lightboxImage.src = button.dataset.full;
+        lightboxImage.alt = image ? image.alt : "Շախմատի դպրոցի լուսանկար";
+        lightbox.showModal();
+      }
+      document.querySelectorAll(".gallery-item, .hero-photo").forEach(function (item) {
+        item.addEventListener("click", function () { openImage(item); });
+        if (item.classList.contains("hero-photo")) {
+          item.addEventListener("keydown", function (event) {
+            if (event.key === "Enter" || event.key === " ") {
+              event.preventDefault();
+              openImage(item);
+            }
+          });
+        }
       });
       document.getElementById("lightbox-close").addEventListener("click", function () { lightbox.close(); });
       lightbox.addEventListener("click", function (event) { if (event.target === lightbox) lightbox.close(); });
+
+      const videoDialog = document.getElementById("video-dialog");
+      const videoPlayer = document.getElementById("video-player");
+      const videoError = document.getElementById("video-error");
+      document.getElementById("video-open").addEventListener("click", function () {
+        videoError.hidden = true;
+        videoDialog.showModal();
+        videoPlayer.load();
+        const playback = videoPlayer.play();
+        if (playback && typeof playback.catch === "function") playback.catch(function () {});
+      });
+      document.getElementById("video-close").addEventListener("click", function () { videoDialog.close(); });
+      videoDialog.addEventListener("click", function (event) { if (event.target === videoDialog) videoDialog.close(); });
+      videoDialog.addEventListener("close", function () { videoPlayer.pause(); });
+      videoPlayer.addEventListener("error", function () { videoError.hidden = false; });
 
       const quiz = document.getElementById("quiz-form");
       const result = document.getElementById("quiz-result");
